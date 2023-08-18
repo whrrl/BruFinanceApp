@@ -2,7 +2,7 @@
 
 # Introduction of [Brú Finance](https://bru.finance/)
 
-Brú is solving these problems of the DeFi lending ecosystem by creating a decentralized tokenized bond market that connects liquidity providers (lenders) in the developed world with high yield accruing emerging market debt, secured by real-world assets like commodities, equities, gold, inventory, receivables, etc. Brú Finance is currently live on the Polygon mainnet, and to make the platform multi-chain supportive we will use infura RPC service. The liquidity providers(lenders) connect to the platform via a mobile app wherein we are using Wallet Connect for interaction. We will be adding Metamask SDK to connect the wallet in our mobile application. 
+Brú is solving these problems of the DeFi lending ecosystem by creating a decentralized tokenized bond market that connects liquidity providers (lenders) in the developed world with high yield accruing emerging market debt, secured by real-world assets like commodities, equities, gold, inventory, receivables, etc. Brú Finance is currently live on the Polygon mainnet, and to make the platform multi-chain supportive we will use infura RPC service. The liquidity providers(lenders) connect to the platform via a mobile app wherein we are using Wallet Connect for interaction. We are now adding Metamask SDK to connect the wallet in our mobile application. 
 Our web app is live on : [https://bru.finance/](https://bru.finance/)
 
 # Getting Started
