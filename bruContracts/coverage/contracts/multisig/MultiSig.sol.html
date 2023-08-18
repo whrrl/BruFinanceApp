@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/multisig/MultiSig.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/multisig/</a> MultiSig.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>155/155</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>114/114</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>110/110</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1141×</span>
+<span class="cline-any cline-yes">1140×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">112×</span>
+<span class="cline-any cline-yes">112×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">548×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">592×</span>
+<span class="cline-any cline-yes">588×</span>
+<span class="cline-any cline-yes">566×</span>
+<span class="cline-any cline-yes">566×</span>
+<span class="cline-any cline-yes">566×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">566×</span>
+<span class="cline-any cline-yes">543×</span>
+<span class="cline-any cline-yes">543×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">283×</span>
+<span class="cline-any cline-yes">283×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">128×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//SPDX-License-Identifier: UNLICENSED
+&nbsp;
+pragma solidity 0.8.7;
+&nbsp;
+import "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts/proxy/utils/Initializable.sol";
+import "../core/BruPool.sol";
+import "../core/BruOracle.sol";
+import "../core/BruRewards.sol";
+import "../core/BruFactory.sol";
+import "../core/BruPrice.sol";
+import "../tokens/PoolToken.sol";
+import "../vesting/VestingBurn.sol";
+import "../vesting/Token.sol";
+import "../wallets/ReserveWallet.sol";
+import "../wallets/NIIMargin.sol";
+import "../wallets/UnclaimedCashflowWallet.sol";
+import "../BruRouter.sol";
+import "../core/AssetTreasury.sol";
+&nbsp;
+contract MultiSig is Initializable, UUPSUpgradeable {
+    uint256 public quorum; // the number of votes required for approval
+    address internal factoryAddress; // address of BruFactory contract
+    address internal routerAddress; // address of BruRouter contract
+    address internal reserveWalletAddress; // address of ReserveWallet contract
+    address internal NIIWalletAddress; // address of NIIMargin contract
+    address internal burnVestingAddress; // address of VestingBurn contract
+    address internal rewardsAddress; // address of BruFactory contract
+    address internal oracleAddress; // address of BruRewards contract
+    address internal tokenAddress; // address of Bru token contract
+    address internal treasuryAddress; // address of AssetTreasury contract
+    address internal unClaimedWalletAddress; // address of UnclaimedCashflowWallet contract
+    address internal bruPriceAddress; // address of BruPrice contract
+    /**
+     * @notice List of approvers address
+     */
+    address[] public approvers;
+    /**
+     * @notice The index of the approver address in the approvers array
+     */
+    mapping(address =&gt; uint256) internal approverIndex;
+    /**
+     * @notice List of proposals created
+     */
+    Proposal[] public proposals;
+&nbsp;
+    //stuct to store the Proposal details
+    struct Proposal {
+        uint256 id;
+        uint256 functionId;
+        uint256[] value;
+        address[] addr;
+        string[] str;
+        uint256 approvals;
+        bool sent;
+    }
+&nbsp;
+    // struct which is used to initialize multisig contract
+    struct MultiSigParams {
+        address factoryAddress;
+        address[] approvers;
+        uint256 quorum;
+        address routerAddress;
+        address reserveWalletAddress;
+        address NIIWalletAddress;
+        address burnVestingAddress;
+        address rewardsAddress;
+        address oracleAddress;
+        address tokenAddress;
+        address treasuryAddress;
+        address unClaimedWalletAddress;
+        address bruPriceAddress;
+    }
+&nbsp;
+    mapping(address =&gt; mapping(uint256 =&gt; mapping(uint256 =&gt; bool))) public approvals; // check approver already vote for a proposal
+    mapping(address =&gt; bool) public isApprover; // check if user address is approver or not
+&nbsp;
+    /**
+     * @notice Emitted when number of quorum update
+     * @param _value The number of quorum
+     */
+    event QuorumUpdated(uint256 _value);
+&nbsp;
+    /**
+     * @notice Emitted when new approver is added
+     * @param _approverAddress The address of the newly added approver
+     */
+    event ApproverAdded(address _approverAddress);
+    /**
+     * @notice Emitted when approver removed
+     * @param _approverAddress The address of the removed approver
+     */
+    event ApproverRemoved(address _approverAddress);
+&nbsp;
+    /**
+     * @dev Used to check the accessibility and only allows the approvers to access the functions.
+     */
+    modifier onlyApprover() {
+        require(isApprover[msg.sender], "only approver allowed");
+        _;
+    }
+&nbsp;
+    /**
+     * @notice Initializes the necessary contract addresses in the contract
+     * @param _params Is type of multiSigParams
+     */
+    function initialize(MultiSigParams memory _params) external virtual initializer {
+        approvers = _params.approvers;
+        factoryAddress = _params.factoryAddress;
+        quorum = _params.quorum;
+        routerAddress = _params.routerAddress;
+        reserveWalletAddress = _params.reserveWalletAddress;
+        NIIWalletAddress = _params.NIIWalletAddress;
+        burnVestingAddress = _params.burnVestingAddress;
+        rewardsAddress = _params.rewardsAddress;
+        oracleAddress = _params.oracleAddress;
+        tokenAddress = _params.tokenAddress;
+        treasuryAddress = _params.treasuryAddress;
+        unClaimedWalletAddress = _params.unClaimedWalletAddress;
+        bruPriceAddress = _params.bruPriceAddress;
+        for (uint8 i = 0; i &lt; approvers.length; i++) {
+            isApprover[approvers[i]] = true;
+            approverIndex[approvers[i]] = i + 1;
+        }
+    }
+&nbsp;
+    /**
+     * @notice Creates a proposal that is going to approved by approvers
+     * @param _value array of integer values
+     * @param _functionId Id of the function we wanted to execute
+     * @param _addr array of the addresses
+     * @param _str array of the string inputs
+     */
+    function createProposal(
+        uint256[] memory _value,
+        uint256 _functionId,
+        address[] memory _addr,
+        string[] memory _str
+    ) external virtual onlyApprover {
+        proposals.push(Proposal(proposals.length, _functionId, _value, _addr, _str, 0, false));
+    }
+&nbsp;
+    /**
+     * @notice Used to get all available proposals
+     * @return The list of all proposal available
+     */
+    function getAllProposals() external view returns (Proposal[] memory) {
+        return proposals;
+    }
+&nbsp;
+    /**
+     * @notice Used to get the address of approvers
+     * @return The list of all approvers address
+     */
+    function getAllApprovers() external view returns (address[] memory) {
+        return approvers;
+    }
+&nbsp;
+    /**
+     * @notice This function executes the proposal incase approved by members more than quorum.
+     * @param _functionId Id of the function which is executed
+     * @param _id Id of the proposal to approve
+     */
+    function approveTransfer(uint256 _functionId, uint256 _id) external virtual onlyApprover {
+        require(!proposals[_id].sent, "Proposal already executed");
+        require(!approvals[msg.sender][_functionId][_id], "cannot approve proposal twice");
+        address poolAddress;
+        approvals[msg.sender][_functionId][_id] = true;
+        proposals[_id].approvals++;
+&nbsp;
+        if (proposals[_id].approvals &gt;= quorum) {
+            proposals[_id].sent = true;
+            if (_functionId == 0) {
+                poolAddress = BruFactory(factoryAddress).getPoolDetails(proposals[_id].value[0]).proxyPoolAddress;
+                BruPool(poolAddress).changeLockPeriod(proposals[_id].value[1]);
+            } else if (_functionId == 1) {
+                poolAddress = BruFactory(factoryAddress).getPoolDetails(proposals[_id].value[0]).proxyPoolAddress;
+                BruPool(poolAddress).changeSpread(proposals[_id].value[1]);
+            } else if (_functionId == 3) {
+                poolAddress = BruFactory(factoryAddress).getPoolDetails(proposals[_id].value[0]).proxyPoolAddress;
+                BruPool(poolAddress).changeBorrowInterestRate(proposals[_id].value[1]);
+            } else if (_functionId == 4) {
+                poolAddress = BruFactory(factoryAddress).getPoolDetails(proposals[_id].value[0]).proxyPoolAddress;
+                BruPool(poolAddress).changeBorrowPlatformFee(proposals[_id].value[1]);
+            } else if (_functionId == 5) {
+                poolAddress = BruFactory(factoryAddress).getPoolDetails(proposals[_id].value[0]).proxyPoolAddress;
+                BruPool(poolAddress).changeLendPlatformFee(proposals[_id].value[1]);
+            } else if (_functionId == 6) {
+                updateQuorum(proposals[_id].value[0]);
+            } else if (_functionId == 7) {
+                poolAddress = BruFactory(factoryAddress).getPoolDetails(proposals[_id].value[0]).proxyPoolAddress;
+                BruPool(poolAddress).allowTokenAddress(proposals[_id].addr[0]);
+            } else if (_functionId == 8) {
+                addApprover(proposals[_id].addr[0]);
+            } else if (_functionId == 9) {
+                removeApprover(proposals[_id].addr[0]);
+            } else if (_functionId == 10) {
+                address interestTokenAddress = BruFactory(factoryAddress)
+                    .getPoolDetails(proposals[_id].value[0])
+                    .interestTokenAddress;
+                PoolToken(interestTokenAddress).changeName(proposals[_id].str[0]);
+            } else if (_functionId == 11) {
+                address poolTokenAddress = BruFactory(factoryAddress)
+                    .getPoolDetails(proposals[_id].value[0])
+                    .poolTokenAddress;
+                PoolToken(poolTokenAddress).changeName(proposals[_id].str[0]);
+            } else if (_functionId == 12) {
+                BruRouter(routerAddress).upgradeTo(proposals[_id].addr[0]);
+            } else if (_functionId == 13) {
+                BruFactory(factoryAddress).upgradeTo(proposals[_id].addr[0]);
+            } else if (_functionId == 14) {
+                poolAddress = BruFactory(factoryAddress).getPoolDetails(proposals[_id].value[0]).proxyPoolAddress;
+                BruPool(poolAddress).upgradeTo(proposals[_id].addr[0]);
+            } else if (_functionId == 15) {
+                this.upgradeTo(proposals[_id].addr[0]);
+            } else if (_functionId == 16) {
+                VestingBurn(burnVestingAddress).upgradeTo(proposals[_id].addr[0]);
+            } else if (_functionId == 18) {
+                NIIMargin(NIIWalletAddress).upgradeTo(proposals[_id].addr[0]);
+            } else if (_functionId == 19) {
+                ReserveWallet(reserveWalletAddress).upgradeTo(proposals[_id].addr[0]);
+            } else if (_functionId == 20) {
+                BruRewards(rewardsAddress).changeEmission(proposals[_id].value[0]);
+            } else if (_functionId == 21) {
+                BruRewards(rewardsAddress).startRewardsForPool(proposals[_id].value[0], proposals[_id].value[1]);
+            } else if (_functionId == 22) {
+                BruRewards(rewardsAddress).stopRewardsForPool(proposals[_id].value[0]);
+            } else if (_functionId == 23) {
+                address interestTokenAddress = BruFactory(factoryAddress)
+                    .getPoolDetails(proposals[_id].value[0])
+                    .interestTokenAddress;
+                PoolToken(interestTokenAddress).setPoolAddress(proposals[_id].addr[0]);
+            } else if (_functionId == 24) {
+                address poolTokenAddress = BruFactory(factoryAddress)
+                    .getPoolDetails(proposals[_id].value[0])
+                    .poolTokenAddress;
+                PoolToken(poolTokenAddress).setPoolAddress(proposals[_id].addr[0]);
+            } else if (_functionId == 25) {
+                BruOracle(oracleAddress).setBruTokenPrice(proposals[_id].value[0]);
+            } else if (_functionId == 26) {
+                Token(tokenAddress).enableMinting(proposals[_id].addr[0]);
+            } else if (_functionId == 28) {
+                VestingBurn(burnVestingAddress).addTokenDistribution(proposals[_id].value[0], proposals[_id].value[1]);
+            } else if (_functionId == 29) {
+                VestingBurn(burnVestingAddress).startExchange(
+                    proposals[_id].value[0],
+                    proposals[_id].addr[0],
+                    proposals[_id].value[1],
+                    proposals[_id].value[2],
+                    proposals[_id].value[3]
+                );
+            }
+            // have skipped one Id as we removed the functionality and wanted to keep rest as it is
+            else if (_functionId == 32) {
+                BruFactory(factoryAddress).addPoolDetails(
+                    proposals[_id].str[0],
+                    proposals[_id].addr[0],
+                    proposals[_id].addr[1],
+                    proposals[_id].addr[2],
+                    proposals[_id].addr[3],
+                    proposals[_id].addr[4]
+                );
+            } else if (_functionId == 33) {
+                poolAddress = BruFactory(factoryAddress).getPoolDetails(proposals[_id].value[0]).proxyPoolAddress;
+                BruPool(poolAddress).changeCoreFunctionalityStatus();
+            } else if (_functionId == 34) {
+                VestingBurn(burnVestingAddress).changePauseStatus();
+            } else if (_functionId == 35) {
+                BruRewards(rewardsAddress).upgradeTo(proposals[_id].addr[0]);
+            } else if (_functionId == 36) {
+                BruOracle(oracleAddress).upgradeTo(proposals[_id].addr[0]);
+            } else if (_functionId == 37) {
+                AssetTreasury(treasuryAddress).changeMintWalletAddress(proposals[_id].addr[0]);
+            } else if (_functionId == 38) {
+                NIIMargin(NIIWalletAddress).startClaimPeriod(proposals[_id].addr[0]);
+            } else if (_functionId == 39) {
+                NIIMargin(NIIWalletAddress).stopClaimPeriod();
+            } else if (_functionId == 40) {
+                ReserveWallet(reserveWalletAddress).transferTo(
+                    proposals[_id].addr[0],
+                    proposals[_id].value[0],
+                    proposals[_id].addr[1]
+                );
+            } else if (_functionId == 41) {
+                UnClaimedCashFlowWallet(unClaimedWalletAddress).upgradeTo(proposals[_id].addr[0]);
+            } else if (_functionId == 42) {
+                UnClaimedCashFlowWallet(unClaimedWalletAddress).transferTo(
+                    proposals[_id].addr[0],
+                    proposals[_id].value[0],
+                    proposals[_id].addr[1]
+                );
+            } else if (_functionId == 43) {
+                NIIMargin(NIIWalletAddress).sendAmount(
+                    proposals[_id].value[0],
+                    proposals[_id].addr[0],
+                    proposals[_id].addr[1]
+                );
+            } else if (_functionId == 44) {
+                BruPrice(bruPriceAddress).upgradeTo(proposals[_id].addr[0]);
+            } else if (_functionId == 45) {
+                poolAddress = BruFactory(factoryAddress).getPoolDetails(proposals[_id].value[0]).proxyPoolAddress;
+                BruPool(poolAddress).removeTokenAddress(proposals[_id].addr[0]);
+            } else if (_functionId == 46) {
+                VestingBurn(burnVestingAddress).changeMaxVestingSchedules(proposals[_id].value[0]);
+            } else if (_functionId == 47) {
+                VestingBurn(burnVestingAddress).changeMaxCategories(proposals[_id].value[0]);
+            } else if (_functionId == 48) {
+                UnClaimedCashFlowWallet(unClaimedWalletAddress).changeMaxAllowedUnClaimed(proposals[_id].value[0]);
+            } else if (_functionId == 49) {
+                Token(tokenAddress).disableMinting(proposals[_id].addr[0]);
+            } else if (_functionId == 50) {
+                Token(tokenAddress).createSnapshot();
+            } else if (_functionId == 51) {
+                BruFactory(factoryAddress).changeMaxPool(proposals[_id].value[0]);
+            } else if (_functionId == 52) {
+                poolAddress = BruFactory(factoryAddress).getPoolDetails(proposals[_id].value[0]).proxyPoolAddress;
+                BruPool(poolAddress).changeMaxAddresses(proposals[_id].value[1]);
+            } else if (_functionId == 53) {
+                BruOracle(oracleAddress).setPriceFeedForToken(proposals[_id].addr[0], proposals[_id].addr[1]);
+            } else {
+                revert("Invalid Function ID");
+            }
+        }
+    }
+&nbsp;
+    /**
+     * @notice function to change the value of quorum
+     * @param _value latest value of quorum
+     */
+    function updateQuorum(uint256 _value) internal {
+        require(approvers.length &gt;= _value, "quorum greater than number of approvers");
+        quorum = _value;
+        emit QuorumUpdated(_value);
+    }
+&nbsp;
+    /**
+     * @dev Checks if the wallet initiating the upgrade transaction for a pool is the admin or not
+     * @param _newImplementation Address of the new implementation contract for upgradation.
+     */
+    function _authorizeUpgrade(address _newImplementation) internal view override {
+        require(msg.sender == address(this), "Not authenticated");
+    }
+&nbsp;
+    /**
+     * @notice Add Approver to apporvers list
+     * @param _approverAddress The new approver address
+     */
+    function addApprover(address _approverAddress) internal {
+        require(_approverAddress != address(0), "Invalid address");
+        approvers.push(_approverAddress);
+        isApprover[_approverAddress] = true;
+        approverIndex[_approverAddress] = approvers.length;
+        emit ApproverAdded(_approverAddress);
+    }
+&nbsp;
+    /**
+     * @notice Removes Approver from approvers list
+     * @param  _approverAddress The address of the approver going to be removed
+     */
+    function removeApprover(address _approverAddress) internal {
+        require(isApprover[_approverAddress], "Not approver");
+        isApprover[_approverAddress] = false;
+        uint256 index = approverIndex[_approverAddress];
+        approvers[index - 1] = approvers[approvers.length - 1];
+        approverIndex[approvers[approvers.length - 1]] = index;
+        delete approverIndex[_approverAddress];
+        approvers.pop();
+        emit ApproverRemoved(_approverAddress);
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed May 31 2023 10:39:20 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

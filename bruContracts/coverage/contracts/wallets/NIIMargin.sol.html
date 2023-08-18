@@ -1,0 +1,899 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/wallets/NIIMargin.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/wallets/</a> NIIMargin.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">59.09% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>26/44</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>12/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.43% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60.42% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>29/48</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">56×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-yes">28×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//SPDX-License-Identifier: UNLICENSED
+pragma solidity 0.8.7;
+&nbsp;
+import "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+&nbsp;
+import "../vesting/Token.sol";
+import "./ReserveWallet.sol";
+&nbsp;
+struct CashFlowDetails {
+    uint256 starttime;
+    uint256 amountLeft;
+    uint256 totalAmountToDistribute;
+    address tokenAddress;
+    bool status;
+}
+&nbsp;
+/**
+ * @title NII margin contract
+ * @author Bru-finance team
+ * @notice Store funds received from fees and interest. The interest expense and other company expenses are given from this wallet
+ */
+contract NIIMargin is Initializable, UUPSUpgradeable {
+    using SafeERC20 for IERC20;
+    uint256 public claimId = 0; // claim id
+    // @notice The address of Multisig wallet
+    address public adminAddress;
+    address internal reserveWalletAddress; // address of reserve Wallet
+    address internal poolAddress; // address of oool
+    address internal owner; // address of owner
+    address internal burnContractAddress; // address of Vesting burn contract
+    address internal bruTokenAddress; // address of bru token contract
+    address internal tokenAddressForCashflow; // address of token in which cashflow will be distributed
+    address internal unClaimedWalletAddress; // address of unclaimed Wallet
+    mapping(address =&gt; mapping(uint256 =&gt; bool)) public cashFlowClaimMapping; // mapping to check if the user has claimed their part for a given claimId
+    mapping(uint256 =&gt; CashFlowDetails) public cashFlowDetailsMapping; // mapping of cashflow details for a given claim Id
+&nbsp;
+    /**
+     * @notice Emitted when claim period started
+     * @param _claimId claim id
+     * @param _tokenAddress address of the token of which we want to divide the cashflow
+     */
+    event ClaimPeriodStarted(uint256 _claimId, address _tokenAddress);
+    /**
+     * @notice Emitted when claim period stopped
+     * @param _claimId claim id
+     */
+    event ClaimPeriodStopped(uint256 _claimId);
+    /**
+     * @notice Emitted when cashflow details are set for a given claimId
+     * @param _claimId claim id
+     * @param _cashFlowDetails Cashflowdetails structure
+     */
+    event SetCashflowDetails(uint256 _claimId, CashFlowDetails _cashFlowDetails);
+    /**
+     * @notice Emitted when user claims a dividend and mapping is updated
+     * @param _claimId claim id
+     * @param _ownerAddress address Of the owner who claims the dividend
+     * @param _claimed boolean for confirming the user has claimed the dividend for given claimId
+     */
+    event SetCashflowClaimed(bool _claimed, address _ownerAddress, uint256 _claimId);
+    /**
+     * @dev Only admin can call functions marked by this modifier.
+     *
+     */
+&nbsp;
+    modifier onlyAdmin() {
+        require(msg.sender == adminAddress, "Can be used only by adminAddress");
+        _;
+    }
+&nbsp;
+    /**
+     * @dev Only unClaimedWalletAddress can call functions marked by this modifier.
+     *
+     */
+    modifier onlyUnClaimedWallet() {
+        <span class="missing-if-branch" title="if path not taken" >I</span>require(msg.sender == unClaimedWalletAddress, "Only called by unclaimed wallet address");
+        _;
+    }
+&nbsp;
+    /**
+     * @dev Only admin, pool and burn wallet can call functions marked by this modifier.
+     *
+     */
+    modifier onlyPoolOrAdminOrBurnContract() {
+        require(
+            msg.sender == adminAddress || msg.sender == poolAddress || msg.sender == burnContractAddress,
+            "Only allowed by admin or pool or burn contract"
+        );
+        _;
+    }
+&nbsp;
+    /**
+     * @notice Initializes the neccessary variables for the contract
+     * @param _reserveWalletAddress The address of ReserveWallet contract
+     * @param _adminAddress The address of Multisig wallet
+     * @param _poolAddress The address of the pool
+     * @param _burnContractAddress The address of burnWallet contract address
+     * @param _bruTokenAddress The address of the bru token
+     * @param _tokenAddressForCashflow The address of the token in which cashflow is distributed
+     * @param _unClaimedWalletAddress The address of the unclaimed wallet contract
+     */
+    function initialize(
+        address _reserveWalletAddress,
+        address _adminAddress,
+        address _poolAddress,
+        address _burnContractAddress,
+        address _bruTokenAddress,
+        address _tokenAddressForCashflow,
+        address _unClaimedWalletAddress
+    ) external initializer {
+        require(
+            _reserveWalletAddress != address(0) &amp;&amp;
+                _adminAddress != address(0) &amp;&amp;
+                _poolAddress != address(0) &amp;&amp;
+                _burnContractAddress != address(0) &amp;&amp;
+                _bruTokenAddress != address(0) &amp;&amp;
+                _tokenAddressForCashflow != address(0) &amp;&amp;
+                _unClaimedWalletAddress != address(0),
+            "Invalid Address"
+        );
+&nbsp;
+        adminAddress = _adminAddress;
+        reserveWalletAddress = _reserveWalletAddress;
+        poolAddress = _poolAddress;
+        burnContractAddress = _burnContractAddress;
+        owner = msg.sender;
+        bruTokenAddress = _bruTokenAddress;
+        tokenAddressForCashflow = _tokenAddressForCashflow;
+        unClaimedWalletAddress = _unClaimedWalletAddress;
+    }
+&nbsp;
+    /**
+     * @notice To pay expenses or other parts from this wallet.
+     * @dev Only called by admin or pool or Burn contract
+     * @param _amount The amount of token to safeTransfer
+     * @param _tokenAddress The address of the token
+     * @param _receiverAddress The address of the receiver
+     */
+    function sendAmount(
+        uint256 _amount,
+        address _tokenAddress,
+        address _receiverAddress
+    ) public onlyPoolOrAdminOrBurnContract {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (
+            IERC20(_tokenAddress).balanceOf(address(this)) + IERC20(_tokenAddress).balanceOf(reserveWalletAddress) &gt;=
+            _amount
+        ) {
+            if (_amount &gt; IERC20(_tokenAddress).balanceOf(address(this))) {
+                _amount -= IERC20(_tokenAddress).balanceOf(address(this));
+                IERC20(_tokenAddress).safeTransfer(_receiverAddress, IERC20(_tokenAddress).balanceOf(address(this)));
+                transferFromReserve(_amount, _tokenAddress, _receiverAddress);
+            } else {
+                IERC20(_tokenAddress).safeTransfer(_receiverAddress, _amount);
+            }
+        } else {
+<span class="cstat-no" title="statement not covered" >            revert("currently we do not have enough balance")</span>;
+        }
+    }
+&nbsp;
+    /**
+     * @notice This function is get cashflow details of a given claimId
+     * @param  _claimId claim Id
+     * @return CashFlowDetails object of a given claim Id
+     */
+<span class="fstat-no" title="function not covered" >    function getCashFlowDetailsOfClaimId(uint256 _claimId) public view returns (CashFlowDetails memory) {</span>
+<span class="cstat-no" title="statement not covered" >        return cashFlowDetailsMapping[_claimId];</span>
+    }
+&nbsp;
+    /**
+     * @notice Used to get the available wallet balance
+     * @param _tokenAddress The address of the token
+     * @return Returns amount of balance available
+     */
+    function getBalance(address _tokenAddress) external view returns (uint256) {
+        IERC20 tokenContract = IERC20(_tokenAddress);
+        return tokenContract.balanceOf(address(this));
+    }
+&nbsp;
+    /**
+     * @notice This function allows the user to claim the dividend for current claimId.
+     */
+<span class="fstat-no" title="function not covered" >    function claimDividend() external {</span>
+<span class="cstat-no" title="statement not covered" >        require(cashFlowDetailsMapping[claimId].status, "claim period ended try from different place")</span>;
+<span class="cstat-no" title="statement not covered" >        if (!cashFlowClaimMapping[msg.sender][claimId]) {</span>
+<span class="cstat-no" title="statement not covered" >            uint256 balance = Token(bruTokenAddress).balanceOfAtDate(</span>
+                msg.sender,
+                cashFlowDetailsMapping[claimId].starttime
+            );
+<span class="cstat-no" title="statement not covered" >            uint256 amountTotransfer = (balance * (cashFlowDetailsMapping[claimId].totalAmountToDistribute)) /</span>
+                (Token(bruTokenAddress).totalSupplyOfAtDate(cashFlowDetailsMapping[claimId].starttime));
+<span class="cstat-no" title="statement not covered" >            if (amountTotransfer &gt; 0 &amp;&amp; cashFlowDetailsMapping[claimId].amountLeft &gt; amountTotransfer) {</span>
+<span class="cstat-no" title="statement not covered" >                cashFlowDetailsMapping[claimId].amountLeft -= amountTotransfer</span>;
+<span class="cstat-no" title="statement not covered" >                cashFlowClaimMapping[msg.sender][claimId] = true</span>;
+<span class="cstat-no" title="statement not covered" >                IERC20(tokenAddressForCashflow).safeTransfer(msg.sender, amountTotransfer)</span>;
+            }
+        } else {
+<span class="cstat-no" title="statement not covered" >            revert("already claimed")</span>;
+        }
+    }
+&nbsp;
+    /**
+     * @notice This function is used to start claim Period
+     * @param _tokenAddress address of the token of which we want to divide the cashflow although for now this tokenAddress is not used as currently we are giving the cashflow in a fixed token
+     */
+    function startClaimPeriod(address _tokenAddress) external onlyAdmin {
+        uint256 amount = (IERC20(_tokenAddress).balanceOf(address(this)) * (16)) / (100);
+<span class="cstat-no" title="statement not covered" >        uint256 time = Token(bruTokenAddress).createSnapshot();</span>
+<span class="cstat-no" title="statement not covered" >        cashFlowDetailsMapping[claimId] = CashFlowDetails(time, amount, amount, _tokenAddress, true)</span>;
+<span class="cstat-no" title="statement not covered" >        emit ClaimPeriodStarted(claimId, _tokenAddress);</span>
+    }
+&nbsp;
+    /**
+     * @notice This function is used to stop claim Period
+     */
+    function stopClaimPeriod() external onlyAdmin {
+        cashFlowDetailsMapping[claimId].status = false;
+        claimId++;
+        IERC20(tokenAddressForCashflow).transfer(
+            unClaimedWalletAddress,
+            cashFlowDetailsMapping[claimId - 1].amountLeft
+        );
+        emit ClaimPeriodStopped(claimId - 1);
+    }
+&nbsp;
+    /**
+     * @notice Used to set cashflow details of a given claimId
+     * @param  _cashflowDetails details to update
+     * @param _claimId claim Id
+     */
+<span class="fstat-no" title="function not covered" >    function setCashFlowDetailsOfClaimId(CashFlowDetails memory _cashflowDetails, uint256 _claimId)</span>
+        external
+        onlyUnClaimedWallet
+    {
+<span class="cstat-no" title="statement not covered" >        cashFlowDetailsMapping[_claimId] = _cashflowDetails</span>;
+<span class="cstat-no" title="statement not covered" >        emit SetCashflowDetails(_claimId, _cashflowDetails);</span>
+    }
+&nbsp;
+    /**
+     * @notice Used to set cashflow claimed mapping of a given claimId for a given owner
+     * @param  _claimId claim Id
+     * @param _owner address of the user to update the claimed bool
+     * @param _result value to update
+     */
+<span class="fstat-no" title="function not covered" >    function setCashFlowClaimedMapping(</span>
+        uint256 _claimId,
+        address _owner,
+        bool _result
+    ) external onlyUnClaimedWallet {
+<span class="cstat-no" title="statement not covered" >        cashFlowClaimMapping[_owner][_claimId] = _result</span>;
+<span class="cstat-no" title="statement not covered" >        emit SetCashflowClaimed(_result, _owner, _claimId);</span>
+    }
+&nbsp;
+    /**
+     * @notice Transfer tokens from the reserve in case the contract has insufficient balance
+     * @dev Only called if reserver wallet is set
+     * @param _amount The amount of token to be transferred
+     * @param _tokenAddress The address of the token
+     * @param _receiverAddress The address of token receiver
+     */
+    function transferFromReserve(
+        uint256 _amount,
+        address _tokenAddress,
+        address _receiverAddress
+    ) internal {
+        ReserveWallet(reserveWalletAddress).transferTo(_receiverAddress, _amount, _tokenAddress);
+    }
+&nbsp;
+    /**
+     *  @dev Checks if the wallet initiating the upgrade transaction for a pool is the admin or not
+     *  @param _newImplementation Address of the new implementation contract for upgradation.
+     */
+    function _authorizeUpgrade(address _newImplementation) internal view override {
+        require(msg.sender == adminAddress, "Only admin allowed");
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed May 31 2023 10:39:20 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

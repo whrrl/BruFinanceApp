@@ -1,0 +1,1127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/core/BruAdmin.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/core/</a> BruAdmin.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>51/51</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>24/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>22/22</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>58/58</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">66×</span>
+<span class="cline-any cline-yes">65×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">296×</span>
+<span class="cline-any cline-yes">295×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">65×</span>
+<span class="cline-any cline-yes">62×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">283×</span>
+<span class="cline-any cline-yes">282×</span>
+<span class="cline-any cline-yes">280×</span>
+<span class="cline-any cline-yes">279×</span>
+<span class="cline-any cline-yes">279×</span>
+<span class="cline-any cline-yes">279×</span>
+<span class="cline-any cline-yes">279×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">296×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">65×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">//SPDX-License-Identifier: UNLICENSED
+pragma solidity 0.8.7;
+&nbsp;
+import "./../vesting/Token.sol";
+&nbsp;
+/**
+ * @title BruAdmin contract
+ * @author Bru-finance team
+ * @dev This contract is used to access admin level functionalities in the pool.
+ */
+contract BruAdmin {
+    //value of pool Rewards APY
+    uint256 internal poolRewardAPY;
+&nbsp;
+    // determines the lending rate
+    uint256 public spread;
+&nbsp;
+    uint256 public lockPeriod; // lock period for deposited funds
+&nbsp;
+    uint256 internal maxFeeRate; // Maxium fees charged by platform
+&nbsp;
+    uint256 public maxAllowedTokenAddresses; // maximum number of allowed tokens
+    /**
+     * @notice Admin address
+     */
+    address public admin;
+    /**
+     * @notice owner address which can trigger owner only functions
+     */
+    address internal owner;
+&nbsp;
+    //address of bruRewards Contract
+    address internal bruRewardsAddress;
+&nbsp;
+    //address of bruPrice Contract
+    address internal bruPriceAddress;
+&nbsp;
+    // address of router contract;
+    address internal routerAddress;
+&nbsp;
+    //address of treasury Contract
+    address internal treasuryAddress;
+&nbsp;
+    //indicates if asset/NFT is available for borrowing
+    mapping(string =&gt; bool) public assetLocked;
+&nbsp;
+    /**
+     * @notice Array of tokens which can be used in this pool
+     */
+    address[] public tokenAddresses;
+    bool public corePause; // it is used for pause functionality in the pool contracts
+&nbsp;
+    Rates public rates; // interest rates for borrow and lend for the pool.
+&nbsp;
+    PlatformFees public platformFees; // platform fees for borrow and lend functionality
+    //Pool Limits
+    struct Rates {
+        uint256 borrow;
+        uint256 lend;
+    }
+&nbsp;
+    //Platform Fees
+    struct PlatformFees {
+        uint256 borrow;
+        uint256 lend;
+    }
+&nbsp;
+    /// @notice Mapping for maintaing addresses of stablecoins allowed by the admin
+    mapping(address =&gt; bool) public allowedTokenAddresses;
+&nbsp;
+    /// @notice a mapping that stores the index of the _tokenAddress in tokenAddresses array
+    mapping(address =&gt; uint256) internal tokenAddressIndex;
+&nbsp;
+    /**
+     * @notice emitted during spread change action.
+     * @param _spread the new spread value in the pool
+     */
+    event SpreadChanged(uint256 _spread);
+&nbsp;
+    /**
+     * @notice emitted during change lock period action in the pool.
+     * @param _lockPeriod the new lock period for deposits in the pool
+     */
+    event LockPeriodChanged(uint256 _lockPeriod);
+&nbsp;
+    /**
+     * @notice Emitted when new token address added to the pool
+     * @param _tokenAddress The address of the newly added token
+     */
+    event TokenAddressAllowed(address _tokenAddress);
+&nbsp;
+    /**
+     * @notice Emited when allowed token address removed from the contract
+     * @param _tokenAddress The address of the removed token
+     */
+    event TokenAddressDisabled(address _tokenAddress);
+&nbsp;
+    /**
+     * @notice Emitted when pool borrow interest rate changed_
+     * @param _rate The number of newly changed_ pool borrow interest rate
+     */
+    event BorrowRateChanged(uint256 _rate);
+&nbsp;
+    /**
+     * @notice Emitted when borrow platform fee changed_
+     * @param _fee The number of newly changed platform fee
+     */
+    event BorrowPlatformFeeChanged(uint256 _fee);
+&nbsp;
+    /**
+     * @notice Emitted when max allowed addresses changed_
+     * @param _maxAllowedAddresses The number of max addresses allowed
+     */
+    event MaxAddressesAllowedChanged(uint256 _maxAllowedAddresses);
+    /**
+     * @notice Emitted when lending platform fee changed
+     * @param _fee The number of newly changed platform fee
+     */
+    event LendPlatformFeeChanged(uint256 _fee);
+&nbsp;
+    /**
+     * @notice Emitted when rewardAPY increased
+     * @param _apy The amount of the increased APY
+     */
+    event PoolRewardsStarted(uint256 _apy);
+&nbsp;
+    /**
+     * @notice Emitted after pool reward stopped
+     */
+    event PoolRewardsStopped();
+&nbsp;
+    /**
+     * @notice Emitted when the status of the pool changed
+     * @param _status the newly changed status
+     */
+    event CoreFunctionalityAvailabilityStatus(bool _status);
+&nbsp;
+    /**
+     * @notice Emitted when NFT is locked
+     * @param _nftId the ID of the NFT
+     */
+    event AssetLocked(string _nftId);
+&nbsp;
+    /**
+     * @notice Emitted when NFT is unlocked
+     * @param _nftId the ID of the NFT
+     */
+    event AssetUnlocked(string _nftId);
+&nbsp;
+    /**
+     * @dev Checks the availability of the core functionality in the pool
+     */
+    modifier checkCorePauseStatus() {
+        require(!corePause, "Core functionalities disabled");
+        _;
+    }
+&nbsp;
+    /**
+     * @dev Only Asset treasury contract can call functions marked by this modifier.
+     */
+    modifier onlyAssetTreasury() {
+        require(treasuryAddress == msg.sender, "only treasury allowed");
+        _;
+    }
+&nbsp;
+    /**
+     * @notice Used to check the accessibility and only allows the admin to access the functions.
+     */
+&nbsp;
+    modifier onlyAdmin() {
+        _onlyAdmin();
+        _;
+    }
+&nbsp;
+    /**
+     * @notice Used to check the accessibility and only allows the router to access the functions.
+     */
+    modifier onlyRouter() {
+        _onlyRouter();
+        _;
+    }
+&nbsp;
+    /**
+     * @notice Used to check the new fee value is less than a max value.
+     * @param _fee new fee value
+     */
+    modifier checkFeeValue(uint256 _fee) {
+        _checkFeeValue(_fee);
+        _;
+    }
+&nbsp;
+    /**
+     * @notice Used to check the accessibility and only allows the owner to access the functions.
+     */
+    modifier onlyOwner() {
+        require(msg.sender == owner, "only owner is authorized");
+        _;
+    }
+&nbsp;
+    /**
+     * @notice Gives a list of token addresses which are supported by the pool
+     * @return array of addresses with list of token addresses supported by the pool
+     */
+    function getAllowedTokenAddressesArray() public view virtual returns (address[] memory) {
+        return tokenAddresses;
+    }
+&nbsp;
+    /**
+     * @notice Used to add a new token address which can be used in the pool
+     * @param _tokenAddress the new token address which can be used in the pool
+     */
+    function allowTokenAddress(address _tokenAddress) external virtual onlyAdmin {
+        require(_tokenAddress != address(0), "Invalid Address");
+        require(tokenAddresses.length + 1 &lt; maxAllowedTokenAddresses, "Max limit reached");
+        require(!allowedTokenAddresses[_tokenAddress], "Already allowed by admin");
+        allowedTokenAddresses[_tokenAddress] = true;
+        tokenAddresses.push(_tokenAddress);
+        tokenAddressIndex[_tokenAddress] = tokenAddresses.length;
+        emit TokenAddressAllowed(_tokenAddress);
+    }
+&nbsp;
+    /**
+     * @notice Disables specified token for use in the pool.
+     * @param _tokenAddress the new token address which is removed from the pool
+     */
+    function removeTokenAddress(address _tokenAddress) external virtual onlyAdmin {
+        require(allowedTokenAddresses[_tokenAddress], "Not allowed by the admin");
+        allowedTokenAddresses[_tokenAddress] = false;
+&nbsp;
+        uint256 index = tokenAddressIndex[_tokenAddress];
+        tokenAddresses[index - 1] = tokenAddresses[tokenAddresses.length - 1];
+        tokenAddressIndex[tokenAddresses[tokenAddresses.length - 1]] = index;
+        delete tokenAddressIndex[_tokenAddress];
+        tokenAddresses.pop();
+        emit TokenAddressDisabled(_tokenAddress);
+    }
+&nbsp;
+    /**
+     * @notice changes the borrow interest rate in the pool
+     * @param _interestRate the new borrow interest rate
+     */
+    function changeBorrowInterestRate(uint256 _interestRate) external virtual onlyAdmin checkFeeValue(_interestRate) {
+        rates.borrow = (_interestRate * (10**18)) / (10000);
+        emit BorrowRateChanged(_interestRate);
+    }
+&nbsp;
+    /**
+     * @notice changes the borrowing platform fees in the pool
+     * @param _fee the new borrowing platform fees
+     */
+    function changeBorrowPlatformFee(uint256 _fee) external virtual onlyAdmin checkFeeValue(_fee) {
+        platformFees.borrow = (_fee * (10**18)) / (10000);
+        emit BorrowPlatformFeeChanged(_fee);
+    }
+&nbsp;
+    /**
+     * @notice changes the max allowed addresses for a pool
+     * @param _maxValue new max value allowed address
+     */
+    function changeMaxAddresses(uint256 _maxValue) external virtual onlyAdmin {
+        maxAllowedTokenAddresses = _maxValue;
+        emit MaxAddressesAllowedChanged(_maxValue);
+    }
+&nbsp;
+    /**
+     * @notice changes the lending platform fees in the pool
+     * @param _fee the new lending platform fees
+     */
+    function changeLendPlatformFee(uint256 _fee) external virtual onlyAdmin checkFeeValue(_fee) {
+        platformFees.lend = _fee * 10000;
+        emit LendPlatformFeeChanged(_fee);
+    }
+&nbsp;
+    /**
+     * @notice changes the time for which the deposits in the pool are locked
+     * @param _time the time for which deposits are locked
+     */
+    function changeLockPeriod(uint256 _time) external virtual onlyAdmin {
+        require(_time &gt; 0, "time should be greater than zero");
+        lockPeriod = _time;
+        emit LockPeriodChanged(_time);
+    }
+&nbsp;
+    /**
+     * @notice changes the spread which affects the lending rates in the pool
+     * @param _spread the value which affects the lending rate in the pool
+     */
+&nbsp;
+    function changeSpread(uint256 _spread) external virtual onlyAdmin {
+        spread = _spread;
+        rates.lend = rates.borrow - spread;
+        emit SpreadChanged(spread);
+    }
+&nbsp;
+    /**
+     * @notice used to enable / disable core functionalities like borrow ,repay , deposit , withdraw
+     */
+    function changeCoreFunctionalityStatus() external virtual onlyAdmin {
+        corePause = !corePause;
+        emit CoreFunctionalityAvailabilityStatus(corePause);
+    }
+&nbsp;
+    /**
+     * @notice used by rewards contract to increase rates during rewards period
+     * @param _rewardAPY The of value of new rewardAPY that increases the rates in the pool by this variable
+     */
+    function startRewards(uint256 _rewardAPY) external virtual {
+        checkRewardsAddress();
+        rates.lend += _rewardAPY;
+        rates.borrow -= _rewardAPY;
+        poolRewardAPY = _rewardAPY;
+        emit PoolRewardsStarted(_rewardAPY);
+    }
+&nbsp;
+    /**
+     * @notice used by rewards contract to reset pool rates after rewards period is completed
+     */
+    function stopRewards() external virtual {
+        checkRewardsAddress();
+        rates.lend -= poolRewardAPY;
+        rates.borrow += poolRewardAPY;
+        poolRewardAPY = 0;
+        emit PoolRewardsStopped();
+    }
+&nbsp;
+    /**
+     * @notice Used to check the that the given call is done by admin.
+     */
+    function _onlyAdmin() internal view virtual {
+        require(msg.sender == admin, "Can be used only by admin");
+    }
+&nbsp;
+    /**
+     * @notice Used to check the that the given call is done by router.
+     */
+    function _onlyRouter() internal view {
+        require(routerAddress == msg.sender, "only router contract can accesss this");
+    }
+&nbsp;
+    /**
+     * @notice Used to check the new fee value is less than max_fee_rates.
+     * @param _fee new fee value
+     */
+    function _checkFeeValue(uint256 _fee) internal view {
+        require(_fee &lt;= maxFeeRate, "fee should be less than max fees");
+    }
+&nbsp;
+    /**
+     * @notice Used to check the accessibility and only allows the Bru rewards contract to access the functions
+     */
+    function checkRewardsAddress() internal view virtual {
+        require(bruRewardsAddress == msg.sender, "only rewards contract can access");
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed May 31 2023 10:39:20 GMT+0530 (India Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
