@@ -5,9 +5,38 @@
 Brú is solving these problems of the DeFi lending ecosystem by creating a decentralized tokenized bond market that connects liquidity providers (lenders) in the developed world with high yield accruing emerging market debt, secured by real-world assets like commodities, equities, gold, inventory, receivables, etc. Brú Finance is currently live on the Polygon mainnet, and to make the platform multi-chain supportive we will use infura RPC service. The liquidity providers(lenders) connect to the platform via a mobile app wherein we are using Wallet Connect for interaction. We are now adding Metamask SDK to connect the wallet in our mobile application. 
 Our web app is live on : [https://bru.finance/](https://bru.finance/)
 
+#### Infura RPC endpoints used in below mentioned files
+
+- [hardhat.config.ts](https://github.com/whrrl/BruFinanceApp/blob/main/bruContracts/hardhat.config.ts), [environment.js](https://github.com/whrrl/BruFinanceApp/blob/main/src/environments/environment.js), [apiService.js](https://github.com/whrrl/BruFinanceApp/blob/main/src/services/apiService.js)
+
+
+#### Metamask SDK configuration is at below file
+- [WalletModel.tsx](https://github.com/whrrl/BruFinanceApp/blob/main/src/components/WalletModel.tsx#L22)
+
+# Supported Networks 
+- Polygon Mainnet
+- Polygon Mumbai Testnet
+- Linea Goerli Testnet
+
 # Getting Started
 
 > **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+
+## Install Packages
+```bash
+
+npm install
+
+#for ios
+cd ios
+pod install
+cd ..
+npm run post-install
+cd ios
+pod install
+cd ..
+```
+
 
 ## Step 1: Start the Metro Server
 
@@ -66,6 +95,14 @@ Now that you have successfully run the app, let's modify it.
 watchman shutdown-server
 
 # Smart Contracts Interaction
+
+
+#### Go to contract folder using below command
+````bash
+
+cd bruContracts
+
+```` 
   
 #### Compile smart contracts
 
@@ -124,12 +161,16 @@ npx hardhat run --network linea scripts/deploy.js
 
 ```
 
-####  Transaction on Linea :
+# Get Faucet for testing 
+
+- [faucets - https://brufinancefaucet.netlify.app/](https://brufinancefaucet.netlify.app/) : Faucet available on Mumbai Testnet & Linea Goerli Testnet for faucet
+
+#  Transaction on Linea :
 
 - [Deposit tx1](https://explorer.goerli.linea.build/tx/0xbe33dc2b4d973b2f0be50ec3d5161a34c8eaf31566b9d4b6033ae93f5a1c3b5a)
 - [Deposit tx2](https://explorer.goerli.linea.build/tx/0x75c960b13729ecaf26ee9e12c9830b8ff84def4a583afdbb4f45bc0286fef126)
 
-#### Deployed Contracts on Linea-Goerli:
+# Deployed Contracts on Linea-Goerli:
 
 - [TestTokenContract](https://explorer.goerli.linea.build/address/0xF16007DE4145ec6152e4c8c467A984b647fd8908)
 - [USDCTestTokenContract](https://explorer.goerli.linea.build/address/0x956EaD2636dfD58D7215E6A415eD4e3E21430fDd)
@@ -161,7 +202,7 @@ npx hardhat run --network linea scripts/deploy.js
 - [BruRouterImplementation](https://explorer.goerli.linea.build/address/0x97335040cd74C9ABeEE75d29de14288588046A4f)
 - [BruRouterProxy](https://explorer.goerli.linea.build/address/0x34c4388EB6e5a856eE22a5A612f8fbffD6d70e78)
 
-#### Deployed Contracts on Polygon Mainnet
+# Deployed Contracts on Polygon Mainnet
 
 - [TestTokenContract](https://polygonscan.com/address/0xc2132D05D31c914a87C6611C10748AEb04B58e8F)
 - [USDCTestTokenContract](https://polygonscan.com/address/0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174)
