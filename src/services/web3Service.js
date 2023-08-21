@@ -23,7 +23,7 @@ export const getTokenBalance = async (
   );
 
   const balance = await contract.balanceOf(userAddress);
-  const formattedBalance = ethers.utils.formatUnits(balance, 6);
+  const formattedBalance = ethers.utils.formatUnits(balance, environment.contracts[chainId].tokens[token].decimal);
   console.log(
     '%c Line:27 🍬 formattedBalance',
     'color:#93c0a4',
@@ -46,7 +46,7 @@ export const getTokenAllowance = async (
   const contract = new ethers.Contract(tokenAddress, TokenABI, web3Provider);
 
   const balance = await contract.allowance(userAddress, contractAddress);
-  const formattedBalance = ethers.utils.formatUnits(balance, 18);
+  const formattedBalance = ethers.utils.formatUnits(balance, environment.contracts[chainId].tokens[token].decimal);
 
   return formattedBalance;
 };
@@ -145,15 +145,15 @@ export const getPstTransactions = async (web3Provider, address, chainId) => {
     // BondCreated  event
     let BondCreated = await contract.queryFilter(
       'BondCreated',
-      41175249 - 100,
-      41175249 + 1000,
+      latestBlock - 1000,
+      latestBlock,
     );
     if (BondCreated) {
       BondCreated.forEach(ele => {
         if ((ele.args[0] = 'address')) {
           transactionData.push({
             type: 'deposit',
-            amount: ethers.utils.formatUnits(ele.args[4], 6),
+            amount: ethers.utils.formatUnits(ele.args[4], environment.contracts[chainId].tokens[token].decimal),
             time: new Date(ele.args[2] * 1000),
             coin: environment.TokenAddress == ele.args[3] ? 'USDT' : 'USDC',
             transactionHash: ele.transactionHash,
@@ -165,15 +165,15 @@ export const getPstTransactions = async (web3Provider, address, chainId) => {
     // BondCreated  event
     let BondWithdrawn = await contract.queryFilter(
       'BondWithdrawn',
-      41175249 - 100,
-      41175249 + 1000,
+      latestBlock - 1000,
+      latestBlock,
     );
     if (BondWithdrawn) {
       BondWithdrawn.forEach(ele => {
         if ((ele.args[0] = 'address')) {
           transactionData.push({
             type: 'withdraw',
-            amount: ethers.utils.formatUnits(ele.args[4], 6),
+            amount: ethers.utils.formatUnits(ele.args[4], environment.contracts[chainId].tokens[token].decimal),
             time: new Date(ele.args[2] * 1000),
             coin: environment.TokenAddress == ele.args[3] ? 'USDT' : 'USDC',
             transactionHash: ele.transactionHash,
@@ -185,15 +185,15 @@ export const getPstTransactions = async (web3Provider, address, chainId) => {
     // BondCreated  event
     let Borrowed = await contract.queryFilter(
       'Borrowed',
-      41175249 - 100,
-      41175249 + 1000,
+      latestBlock - 1000,
+      latestBlock,
     );
     if (Borrowed) {
       Borrowed.forEach(ele => {
         if ((ele.args[0] = 'address')) {
           transactionData.push({
             type: 'borrow',
-            amount: ethers.utils.formatUnits(ele.args[4], 6),
+            amount: ethers.utils.formatUnits(ele.args[4], environment.contracts[chainId].tokens[token].decimal),
             time: new Date(ele.args[2] * 1000),
             coin: environment.TokenAddress == ele.args[3] ? 'USDT' : 'USDC',
             transactionHash: ele.transactionHash,
@@ -205,15 +205,15 @@ export const getPstTransactions = async (web3Provider, address, chainId) => {
     // BondCreated  event
     let Repaid = await contract.queryFilter(
       'Repaid',
-      41175249 - 100,
-      41175249 + 1000,
+      latestBlock - 1000,
+      latestBlock,
     );
     if (Repaid) {
       Repaid.forEach(ele => {
         if ((ele.args[0] = 'address')) {
           transactionData.push({
             type: 'repay',
-            amount: ethers.utils.formatUnits(ele.args[4], 6),
+            amount: ethers.utils.formatUnits(ele.args[4], environment.contracts[chainId].tokens[token].decimal),
             time: new Date(ele.args[2] * 1000),
             coin: environment.TokenAddress == ele.args[3] ? 'USDT' : 'USDC',
             transactionHash: ele.transactionHash,
@@ -275,7 +275,7 @@ export const getUserBondIds = async (
 
     let bId = bondId * 1;
 
-    for (let i = 0; i < parseInt(bId); i++) {
+    for (let i = parseInt(bId); i > 0; i--) {
       let bond = await contract.userBonds(userAddress, i);
 
       let bondClaimed = await contract.bondInterestClaimed(userAddress, i);
@@ -299,7 +299,7 @@ export const getUserBondIds = async (
         tokenAddress: tokenAddress,
         depositTime: new Date(depositTime * 1000).toDateString(),
         time: depositTime,
-        bondAmount: bondAmount,
+        bondAmount: Number(bondAmount).toFixed(2),
         interest: (interest * 100).toFixed(2),
         withdrawn: bond[6],
         bondClaimed: bondClaimed,

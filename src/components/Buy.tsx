@@ -301,10 +301,10 @@ export default BuyScreen = ({navigation}) => {
                           data={[
                             {key: 'Collateral Type : Agricultural Commodity'},
                             {
-                              key: `Balance in Pool : USD ${withdrawData?.bondAmount}`,
+                              key: `Balance in Pool : USD ${Number(withdrawData?.bondAmount).toFixed(2)}`,
                             },
                             {
-                              key: `Withdrawable Bal. : USDT ${withdrawData?.totalWithdrawableAmount}`,
+                              key: `Withdrawable Bal. : USDT ${Number(withdrawData?.totalWithdrawableAmount).toFixed(2)}`,
                             },
                           ]}
                           renderItem={({item}) => {

@@ -181,7 +181,7 @@ export default BuyPopUp1Screen = ({navigation, route}) => {
           selectedToken,
           web3Data.chainId,
         );
-        setUsdtBalance(data);
+        setUsdtBalance(Number(data).toFixed(2));
       };
       getBalanceUser();
     }
@@ -214,7 +214,7 @@ export default BuyPopUp1Screen = ({navigation, route}) => {
                     {key: 'Pool Name : IndiaAgro'},
                     {key: 'Lock-in Period : 6 Months'},
                     {key: 'Collateral Type : Agricultural Commodity'},
-                    {key: 'A.P.Y : 7% Per Annum'},
+                    {key: 'A.P.Y : 8% Per Annum'},
                   ]}
                   renderItem={({item}) => {
                     return (
@@ -294,7 +294,7 @@ export default BuyPopUp1Screen = ({navigation, route}) => {
                     <Avatar rounded source={require('../assets/tether1.png')} />
                     <View style={styles.verticleLine}></View>
                     <ListItem.Content>
-                      <ListItem.Title>Tether (USDC)</ListItem.Title>
+                      <ListItem.Title>USD Coin (USDC)</ListItem.Title>
                     </ListItem.Content>
                   </ListItem>
                 </ListItem.Accordion>

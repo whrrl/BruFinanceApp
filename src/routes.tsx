@@ -54,9 +54,9 @@ function HomeTabs() {
       <Tab.Screen
         name="Buy"
         component={BuyScreen}
-        options={{headerShown: false}}
+        options={{headerShown: true}}
       />
-      <Tab.Screen name="Trxn" component={TransactionScreen} />
+      <Tab.Screen name="Transaction" component={TransactionScreen} />
       {/* <Tab.Screen name="Buy Bonds" component={CompleteTransaction} /> */}
     </Tab.Navigator>
   );
@@ -181,12 +181,12 @@ const Routes = () => {
         <Stack.Screen
           name="Buy1"
           component={BuyPopUp1Screen}
-          options={{title: 'Buy Bonds', headerShown: false}}
+          options={{title: 'Buy Bonds', headerShown: true}}
         />
         <Stack.Screen
           name="CompleteTransaction"
           component={CompleteTransaction}
-          options={{title: 'Buy Bonds', headerShown: false}}
+          options={{title: 'Buy Bonds', headerShown: true}}
         />
         <Stack.Screen name="Profile" component={ProfileScreen} />
         <Stack.Screen name="Transaction" component={TransactionScreen} />
@@ -194,7 +194,7 @@ const Routes = () => {
         <Stack.Screen
           name="Buy2"
           component={BuyBondsScreen}
-          options={{title: 'Buy Bonds', headerShown: false}}
+          options={{title: 'Buy Bonds', headerShown: true}}
         />
       </Stack.Navigator>
     </NavigationContainer>

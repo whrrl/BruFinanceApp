@@ -161,7 +161,7 @@ export default MyTransactionWithdraw = ({navigation}) => {
                     Tx Id:{' '}
                   </Text>
                   <Text style={{width: '30%', color: 'black', marginLeft: -22}}>
-                    {data?.bondAmount}
+                    {data?.bondId}
                   </Text>
                   <Text style={{width: '40%', marginLeft: 50, color: 'gray'}}>
                     Amount

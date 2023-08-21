@@ -377,7 +377,7 @@ export default BuyBondsScreen = ({navigation, route}) => {
                     paddingTop: 10,
                   }}>
                   <Text style={{width: '50%', marginLeft: 10}}>
-                    Bru bons you will receive
+                    Bru bonds you will receive
                   </Text>
                   <Text style={{width: '30%', marginLeft: 70}}>${amount}</Text>
                 </View>

@@ -9,15 +9,18 @@ export const environment = {
       InfuraUrl:
         'https://polygon-mumbai.infura.io/v3/b75ffec8191348e8a87319d4dfcd74da',
       InfuraName: 'maticmum',
-      name: 'Polygon Mumbai Test Net',
+      name: 'Polygon Mumbai Testnet',
+      explorerUrl: "https://mumbai.polygonscan.com/tx/",
       tokens: {
         USDT: {
           name: 'USDT',
           address: '0x4D644C68B4bbaE2795A91E768E69FDdef346FA40',
+          decimal: 18
         },
         USDC: {
           name: 'USDC',
           address: '0x6660E482CD59E6a86bAf7807D0ad8f03c38224d5',
+          decimal: 18
         },
       },
       TokenAddress: '0x4D644C68B4bbaE2795A91E768E69FDdef346FA40',
@@ -30,15 +33,18 @@ export const environment = {
       InfuraUrl:
         'https://polygon-mainnet.infura.io/v3/b75ffec8191348e8a87319d4dfcd74da',
       InfuraName: 'matic',
-      name: 'Polygon Main Net',
+      name: 'Polygon Mainnet',
+      explorerUrl: "https://polygonscan.com/tx/",
       tokens: {
         USDT: {
           name: 'USDT',
           address: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
+          decimal: 6
         },
         USDC: {
           name: 'USDC',
           address: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
+          decimal: 6
         },
       },
       TokenAddress: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
@@ -51,15 +57,18 @@ export const environment = {
       InfuraUrl:
         'https://linea-goerli.infura.io/v3/b75ffec8191348e8a87319d4dfcd74da',
       InfuraName: 'linea-goerli',
-      name: 'Linea test network',
+      name: 'Linea Goerli Testnet',
+      explorerUrl: "https://explorer.goerli.linea.build/tx/",
       tokens: {
         USDT: {
           name: 'USDT',
           address: '0xF16007DE4145ec6152e4c8c467A984b647fd8908',
+          decimal: 18
         },
         USDC: {
           name: 'USDC',
           address: '0x956EaD2636dfD58D7215E6A415eD4e3E21430fDd',
+          decimal: 18
         },
       },
       TokenAddress: '0xF16007DE4145ec6152e4c8c467A984b647fd8908',
