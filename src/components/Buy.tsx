@@ -243,15 +243,16 @@ export default BuyScreen = ({navigation}) => {
                 </Card.Content>
                 <Card.Actions>
                   <View style={styles.buttonContent}>
-                    <Pressable style={styles.connectButton}>
+                    <Pressable style={styles.connectButton} 
+                      onPress={() =>
+                        navigation.navigate('Buy1', {
+                          screenName: 'Buy',
+                        })
+                      }>
                       <View style={styles.connectButton.view}>
                         <Text
                           style={styles.connectButton.text}
-                          onPress={() =>
-                            navigation.navigate('Buy1', {
-                              screenName: 'Buy',
-                            })
-                          }>
+                          >
                           Buy Bond
                         </Text>
                       </View>
@@ -327,15 +328,16 @@ export default BuyScreen = ({navigation}) => {
                 </Card.Content>
                 <Card.Actions>
                   <View style={styles.buttonContent}>
-                    <Pressable style={styles.connectButton}>
+                    <Pressable style={styles.connectButton}
+                    onPress={() =>
+                      navigation.navigate('WithdrawTx', {
+                        screenName: 'Withdraw',
+                      })
+                    }>
                       <View style={styles.connectButton.view}>
                         <Text
                           style={styles.connectButton.text}
-                          onPress={() =>
-                            navigation.navigate('WithdrawTx', {
-                              screenName: 'Withdraw',
-                            })
-                          }>
+                          >
                           Withdraw
                         </Text>
                       </View>

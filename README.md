@@ -31,7 +31,7 @@ npm install
 cd ios
 pod install
 cd ..
-npm run post-install
+npm run postinstall
 cd ios
 pod install
 cd ..
